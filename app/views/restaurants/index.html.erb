@@ -1,0 +1,20 @@
+<h1>Yelp</h1>
+<br>
+<h2>List of Restaurants</h2>
+<br>
+<% @restaurants.each do |rest| %>
+  <ul>
+    <li>
+      <%= link_to "#{rest.name}", restaurant_path(rest) %>
+      <%= link_to 'Edit Restaurant', edit_restaurant_path(rest) %>
+      <%= link_to 'Delete Restaurant',
+      restaurant_path(rest),
+      data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }
+      %>
+    </li>
+  </ul>
+<% end %>
+
+<%= link_to '+ Add a Restaurant', new_restaurant_path %>
+
+<%= link_to 'Go to top restaurants', top_restaurants_path %>
